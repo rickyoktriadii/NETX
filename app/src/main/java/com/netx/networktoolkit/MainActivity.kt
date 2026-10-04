@@ -199,7 +199,10 @@ fun NetxApp(vm: NetxViewModel = viewModel()) {
                         Text("NETX", style = MaterialTheme.typography.headlineMedium, fontWeight = FontWeight.Bold)
                         Text("Network Diagnostic Toolkit", style = MaterialTheme.typography.bodySmall)
                     }
-                    Switch(vm.darkMode) { vm.toggleTheme() }
+                    Switch(
+                        checked = vm.darkMode,
+                        onCheckedChange = { vm.toggleTheme() }
+                    )
                 }
             }
         ) { padding ->
