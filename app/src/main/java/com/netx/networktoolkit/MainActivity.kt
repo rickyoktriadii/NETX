@@ -218,7 +218,7 @@ private fun NetworkStatusCard(network: NetworkSnapshot) {
         Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(10.dp)) {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Box(Modifier.size(12.dp).background(if (network.connected) Color(0xFF25D366) else Color(0xFFE74C3C), RoundedCornerShape(50)))
-                Spacer(Modifier.width(8.dp)); Text(if (network.connected) "Internet Connection" else "No Connection", fontWeight = FontWeight.Bold, Modifier.weight(1f)); Icon(if (network.transport == "Wi-Fi") Icons.Default.Wifi else Icons.Default.NetworkCheck, null, tint = MaterialTheme.colorScheme.primary)
+                Spacer(Modifier.width(8.dp)); Text(if (network.connected) "Internet Connection" else "No Connection", fontWeight = FontWeight.Bold, modifier = Modifier.weight(1f)); Icon(if (network.transport == "Wi-Fi") Icons.Default.Wifi else Icons.Default.NetworkCheck, null, tint = MaterialTheme.colorScheme.primary)
             }
             Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) { Metric("Latency", network.latencyMs?.let { "$it ms" } ?: "—", Modifier.weight(1f)); Metric("Network", network.transport, Modifier.weight(1f)); Metric("Local IP", network.localAddress, Modifier.weight(1f)) }
         }
